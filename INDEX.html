@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شاشة ذكاء الأعمال</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400&display=swap" rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <style>
+        body {
+            font-family: 'Alexandria', sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .chart-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            justify-items: center;
+        }
+        .chart {
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>شاشة ذكاء الأعمال</h1>
+    <div class="chart-container">
+        <div id="chart1" class="chart"></div>
+        <div id="chart2" class="chart"></div>
+        <div id="chart3" class="chart"></div>
+        <div id="chart4" class="chart"></div>
+    </div>
+
+    <script>
+        // Chart 1: توزيع الطلاب حسب المدارس
+        Highcharts.chart('chart1', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'توزيع الطلاب حسب المدارس'
+            },
+            xAxis: {
+                categories: ['الانجال الأهلية', 'الانجال المتوسطة', 'البيان النموذجية', 'التقوى الاهلية', 'الثانوية التاسعة عشر'],
+                title: {
+                    text: 'أسماء المدارس'
+                },
+            },
+		credits: {
+    enabled: false
+  },
+		plotOptions: {
+	        column: {
+        	    borderRadius: '25%'
+        }
+    },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'إجمالي الطلبة'
+                }
+            },
+            series: [{
+                name: 'إجمالي الطلبة',
+                data: [60, 15, 10, 90, 130],
+                color: '#8079A8'
+            }, {
+                name: 'بنين',
+                type: 'spline',
+                data: [50, 6, 7, 50, 80],
+                color: '#4A7FB9'
+            }, {
+                name: 'بنات',
+                type: 'spline',
+                data: [10, 9, 3, 40, 50],
+                color: '#D14E48'
+            }]
+        });
+
+        // Chart 2: إجمالي الطلاب بناءاً على المناطق - حسب الجنس
+        Highcharts.chart('chart2', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'إجمالي الطلاب بناءاً على المناطق - حسب الجنس'
+		
+            },
+	credits: {
+    enabled: false
+  },
+		plotOptions: {
+	        column: {
+        	    borderRadius: '25%'
+        }
+    },
+            xAxis: {
+                categories: ['منطقة الباحة', 'منطقة مكة المكرمة', 'منطقة الرياض', 'منطقة عسير', 'منطقة القصيم'],
+                title: {
+                    text: 'اسم المنطقة'
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'إجمالي الطلبة'
+                }
+            },
+            series: [{
+                name: 'إجمالي الطلبة',
+                data: [210, 150, 160, 110, 180],
+                color: '#E2A947'
+            }, {
+                name: 'بنين',
+                type: 'spline',
+                data: [150, 100, 80, 50, 120],
+                color: '#4A7FB9'
+            }, {
+                name: 'بنات',
+                type: 'spline',
+                data: [60, 50, 70, 60, 60],
+                color: '#D14E48'
+            }]
+        });
+
+        // Chart 3: توزيع الطلاب حسب الجوائز
+        Highcharts.chart('chart3', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'توزيع الطلاب حسب الجوائز'
+            },
+	credits: {
+    enabled: false
+  },
+		plotOptions: {
+	        column: {
+        	    borderRadius: '25%'
+        }
+    },
+            xAxis: {
+                categories: ['ميدالية فضية', 'وسيلة', 'وكالة الفضاء الأمريكية (ناسا)'],
+                title: {
+                    text: 'نوع الجائزة'
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'إجمالي الطلبة'
+                }
+            },
+            series: [{
+                name: 'إجمالي الطلبة',
+                data: [300, 150, 350],
+                color: '#64A86C'
+            }, {
+                name: 'بنين',
+                type: 'spline',
+                data: [200, 50, 250],
+                color: '#4A7FB9'
+            }, {
+                name: 'بنات',
+                type: 'spline',
+                data: [100, 100, 100],
+                color: '#D14E48'
+            }]
+        });
+
+        // Chart 4: توزيع الطلاب حسب نوع المسابقة
+        Highcharts.chart('chart4', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'توزيع الطلاب حسب نوع المسابقة'
+            },
+	credits: {
+    enabled: false
+  },
+		plotOptions: {
+	        column: {
+        	    borderRadius: '25%'
+        }
+    },
+            xAxis: {
+                categories: ['أولمبياد الرياضيات الدولي', 'تحدي الأحياء', 'كانجارو موهبة', 'الملتقى العربي الثاني للنشء'],
+                title: {
+                    text: 'اسم المسابقة'
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'إجمالي الطلبة'
+                }
+            },
+            series: [{
+                name: 'إجمالي الطلبة',
+                data: [90, 200, 100, 110],
+                color: '#58595B'
+            }, {
+                name: 'بنين',
+                type: 'spline',
+                data: [50, 120, 60, 60],
+                color: '#4A7FB9'
+            }, {
+                name: 'بنات',
+                type: 'spline',
+                data: [40, 80, 40, 50],
+                color: '#D14E48'
+            }]
+        });
+    </script>
+</body>
+</html>
